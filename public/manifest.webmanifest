@@ -1,0 +1,15 @@
+{
+  "name": "ROUX Joyas 18K",
+  "short_name": "ROUX",
+  "description": "Joyas 18K: cadenas, anillos, dijes, topos y más. Precio del oro en vivo y pedidos por WhatsApp.",
+  "lang": "es-CO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f0e8",
+  "theme_color": "#062b2a",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
