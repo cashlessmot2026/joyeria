@@ -70,6 +70,14 @@ npm run build
 
 Sube la carpeta `dist/` a cualquier hosting estático (Vercel, Netlify, Cloudflare Pages…). Debe servirse por HTTPS para que la PWA y el service worker funcionen.
 
+## Si la página sale en blanco
+
+- **No abras `index.html` ni `dist/index.html` con doble clic.** Los módulos de JavaScript no cargan desde `file://`. Usa `npm run dev` (desarrollo) o `npm run preview` (versión compilada), o publica la carpeta `dist/`.
+- Después de actualizar el código ejecuta `npm install` otra vez (hay dependencias nuevas: Supabase y jsPDF).
+- El hosting debe servir los `.js` con tipo `text/javascript`. El servidor simple de Python en Windows los sirve como texto y deja la página en blanco; usa `npm run preview` o un hosting real (Vercel, Netlify, GitHub Pages).
+- La tienda funciona en la raíz del dominio o en una subcarpeta (por ejemplo GitHub Pages).
+- Si ves una versión vieja o rota, borra los datos del sitio: DevTools → Application → Service Workers → *Unregister*, y recarga con Ctrl+Shift+R.
+
 ## Estructura
 
 ```

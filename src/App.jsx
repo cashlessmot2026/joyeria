@@ -254,7 +254,7 @@ export default function App() {
           {menuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
         <a className="brand-lockup" href="#inicio" aria-label="ROUX inicio" onClick={onLogo}>
-          <img src="/assets/roux-logo.png" alt="ROUX Joyas 18K" draggable="false" />
+          <img src={`${import.meta.env.BASE_URL}assets/roux-logo.png`} alt="ROUX Joyas 18K" draggable="false" />
         </a>
         <nav className={`main-nav ${menuOpen ? "is-open" : ""}`}>
           <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
@@ -406,7 +406,7 @@ export default function App() {
 
         <section className="essence-section" id="nuestra-esencia">
           <div className="essence-image glow-card">
-            {byId.get("candongas-candonga-2-p84") && <img src={byId.get("candongas-candonga-2-p84").image} alt="Candongas ROUX" loading="lazy" />}
+            {byId.get("candongas-candonga-2-p84") && <img src={normalizeImageUrl(byId.get("candongas-candonga-2-p84").image)} alt="Candongas ROUX" loading="lazy" />}
           </div>
           <div className="essence-copy">
             <span className="eyebrow"><span className="eyebrow-line" /> NUESTRA ESENCIA</span>
@@ -426,7 +426,7 @@ export default function App() {
       <footer className="footer" id="contacto">
         <div className="footer-top">
           <div className="footer-brand">
-            <img src="/assets/roux-logo.png" alt="ROUX Joyas 18K" />
+            <img src={`${import.meta.env.BASE_URL}assets/roux-logo.png`} alt="ROUX Joyas 18K" />
             <p>El brillo de ser tú.</p>
           </div>
           <div className="footer-column"><span>EXPLORA</span><a href="#categorias">Categorías</a><a href="#catalogo">Colección</a><a href="#nuestra-esencia">Nuestra esencia</a></div>

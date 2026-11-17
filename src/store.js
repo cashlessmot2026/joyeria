@@ -27,6 +27,7 @@ const writeLocal = (data) => {
 export function normalizeImageUrl(raw) {
   const url = (raw || "").trim();
   if (!url) return "";
+  if (url.startsWith("/")) return import.meta.env.BASE_URL + url.slice(1);
   const patterns = [
     /drive\.google\.com\/file\/d\/([\w-]+)/,
     /drive\.google\.com\/open\?id=([\w-]+)/,

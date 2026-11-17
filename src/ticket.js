@@ -68,7 +68,7 @@ export async function drawTicket(order) {
   c.fillStyle = "#bb9a61";
   c.fillRect(0, 190, W, 3);
 
-  const logo = await loadImage("/assets/roux-logo.png");
+  const logo = await loadImage(`${import.meta.env.BASE_URL}assets/roux-logo.png`);
   if (logo) c.drawImage(logo, W / 2 - 52, 22, 104, 104);
   c.textAlign = "center";
   c.fillStyle = "#d7bd8d";

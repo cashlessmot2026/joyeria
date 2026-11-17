@@ -1,7 +1,8 @@
 // Service worker de ROUX: la tienda abre sin conexión y las fotos se guardan al verlas.
 // Los precios del oro y Supabase NUNCA se cachean (siempre red).
-const VERSION = "roux-v1";
-const SHELL = ["/", "/manifest.webmanifest", "/assets/roux-logo.png"];
+const VERSION = "roux-v2";
+const ROOT = self.registration.scope;
+const SHELL = [ROOT, ROOT + "manifest.webmanifest", ROOT + "assets/roux-logo.png"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -22,7 +23,7 @@ self.addEventListener("fetch", (e) => {
 
   // Páginas: red primero, copia guardada si no hay conexión
   if (req.mode === "navigate") {
-    e.respondWith(fetch(req).then((r) => { const copy = r.clone(); caches.open(VERSION).then((c) => c.put("/", copy)); return r; }).catch(() => caches.match("/")));
+    e.respondWith(fetch(req).then((r) => { const copy = r.clone(); caches.open(VERSION).then((c) => c.put(ROOT, copy)); return r; }).catch(() => caches.match(ROOT)));
     return;
   }
   // Archivos propios (js, css, fotos): copia primero y se actualiza en segundo plano
